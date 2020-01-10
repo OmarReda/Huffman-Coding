@@ -47,7 +47,7 @@ public class Huffman {
     public static void printCode(HuffmanNode root, String s) {                  //recursive function 
         String ss = "";
         ss += root.c;
-        if (root.left == null && root.right == null ) {                          //lw left w right b null
+        if (root.left == null && root.right == null ) {                          
             if((ss.equals(" ") && ss.length() < 2) || !ss.trim().isEmpty())
             char_freq.put(root.c, s);
             System.out.println("root : " + root.c);
@@ -80,9 +80,7 @@ public class Huffman {
             System.out.println("\nYour Output will be saved in : " + Output);
             readFileAsString(FILE);
             System.out.println("2aret elfile");
-//            System.out.println(readstring);
             getOccuringChar(readstring);
-            System.out.println("gebt el frequency");
             System.out.println("char_arr : ");
             for (int x = 0; x < char_arr.length; x++) {
 
@@ -112,19 +110,19 @@ public class Huffman {
                 i++;
             }
 
-            HuffmanNode root = null;                    // initialize el root b null
-            while (q.size() > 1) {                      // extract l7d ma el size yeb2a 1
-                HuffmanNode x = q.peek();               // extract el 2ola
+            HuffmanNode root = null;                    
+            while (q.size() > 1) {                      
+                HuffmanNode x = q.peek();               
                 q.poll();
-                HuffmanNode y = q.peek();               // extract el tania
+                HuffmanNode y = q.peek();               
                 q.poll();
-                HuffmanNode f = new HuffmanNode();      // El magmo3
+                HuffmanNode f = new HuffmanNode();      
                 f.data = x.data + y.data;
                 f.c = '-';
                 f.left = x;                             // left
                 f.right = y;                            // right
-                root = f;                               // De el root
-                q.add(f);                               // 7ot fe el queue
+                root = f;                               
+                q.add(f);                               
             }
             char_freq = new HashMap<Character, String>(freq.length);
             long startTime = System.currentTimeMillis();
@@ -220,14 +218,11 @@ public class Huffman {
             for (int u = 0; u < readstring.length(); u++) {
                 if (char_freq.containsKey(readstring.charAt(u))) {
                     sb5.append(char_freq.get(readstring.charAt(u)));
-                    //code = code + char_freq.get(readstring.charAt(u));
                 }
             }
 
-            //sb5 = sb5.append("\n");
             String test = sb5.toString() + "\n";
             sb5.append(test);
-            //code = System.lineSeparator() + code;
 
             fw.append(sb5.toString());
             fw.close();
@@ -255,28 +250,21 @@ public class Huffman {
             table = new HashMap<Character, String>(counter);
                 while(uu<counter){
                 String line = reader.readLine();
-                    //System.out.println("new line is " + line);
                 
                 String[] arrOfStr2 = line.split("=");
-                    //System.out.println("after splitting : " + arrOfStr2[0]);
                     letter = arrOfStr2[0].charAt(0);
                     serial = arrOfStr2[1];
                     table.put(letter, serial);
                     uu++;
                 }
                 String line2 = reader.readLine();
-                //System.out.println("second line is : " + line2);
-                //System.out.println("line length : " + line2.length());
                 StringBuilder sb8 = new StringBuilder(temp);
                 StringBuilder sb9 = new StringBuilder(returnValue);
                 while (step < line2.length()/2) {
                     sb8.append(line2.charAt(step));
-                    //temp = temp + line2.charAt(step);
                     for (Map.Entry mapelement : table.entrySet()) {
                         if (mapelement.getValue().equals(sb8.toString())) {
                             sb9.append(mapelement.getKey().toString());
-                            //returnValue = returnValue + mapelement.getKey();
-                            //System.out.println("return value : " + returnValue);
                             sb8.replace(0,sb8.toString().length(),"");
                         }
                     }
